@@ -25,10 +25,7 @@ contract BasicNFTTest is Test {
         //whith bytes arrays we cannot compare them to each other
         //we can only compare primitive types like uint256
 
-        assert(
-            keccak256(abi.encodePacked(expectedName)) ==
-                keccak256(abi.encodePacked(actualName))
-        );
+        assert(keccak256(abi.encodePacked(expectedName)) == keccak256(abi.encodePacked(actualName)));
     }
 
     function testCanMintAndHaveABalance() public {
@@ -36,9 +33,6 @@ contract BasicNFTTest is Test {
         basicNFT.mintNFT(PUG);
 
         assert(basicNFT.balanceOf(USER) == 1);
-        assert(
-            keccak256(abi.encodePacked(basicNFT.tokenURI(0))) ==
-                keccak256(abi.encodePacked(PUG))
-        );
+        assert(keccak256(abi.encodePacked(basicNFT.tokenURI(0))) == keccak256(abi.encodePacked(PUG)));
     }
 }
